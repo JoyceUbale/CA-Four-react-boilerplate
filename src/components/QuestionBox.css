@@ -3,12 +3,15 @@
     padding: 0px;
 }
 body{
-  background-color: gray;
+  background-image: url(https://static.vecteezy.com/system/resources/thumbnails/008/889/844/small/quiz-set-in-doodle-style-illustration-icon-question-symbol-for-print-and-design-quiz-and-exam-concept-isolated-element-on-black-background-collection-of-sign-for-school-and-event-vector.jpg);
   display: flex;
   justify-content: center;
 }
+
+
+/* kalvium and light and dark mode  */
 .kalvium{
-    color: white;
+    color: rgb(246, 6, 6);
     margin-top: 20px;
     margin-left: 210px;
     position: absolute;
@@ -21,18 +24,21 @@ body{
     border: none;
     margin-left: 1000px;
     margin-top: 20px;
+    
 }
-/* quiz */
+
+/* quiz outer box*/
 .main{
-    background-color: rgb(208, 208, 208);
+    /* background-color: #d0d0d0; */
     height: 550px;
     width: 1300px;
     margin-top: 70px;
     margin-left: 12px;
     border-radius: 20px;
 }
+
+/* questions & option  */
 .Qcount{
-    color: aqua;
     text-align: center;
     padding-top: 20px;
 }
@@ -40,22 +46,27 @@ body{
     color: blue;
     text-align: center;
     padding-top: 30px;
+    margin-bottom: 30px;
 
 }
-.Opcontainer{
-    margin-top: 40px;
-display: grid;
-gap: 10px;
-}
-.option{
+
+ul {
+    list-style: none;
+  }
+  
+  li {
+    margin-top: 8px;
+    background-color: darkgray;
+    padding: 16px;
+    border-radius: 20px;
+    font-size: 20px;
+    font-weight: bold;
     width: 1000px;
     margin-left: 150px;
-    height: 40px;
-    border-radius: 20px;
-    padding: 20px 0px 40px 0px;
-    font-size: larger;
-    font-weight: bold;
-}
+    text-align: center;
+  }
+  
+  /* highlight */
 .highlight{
     width: 130px;
     height: 50px;
