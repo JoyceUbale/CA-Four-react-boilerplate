@@ -3,8 +3,11 @@ import { MdLightMode, MdDarkMode } from 'react-icons/md';
 import './Result.css';
 
 export default function Result() {
+
+  // State for theme
   const [dark, setTheme] = useState(true);
   const [themeName, setThemeName] = useState('dark');
+  // State for tracking user's score
   const [score, setScore] = useState(0);
 
   const questions = [
@@ -57,6 +60,7 @@ export default function Result() {
     },
   ];
 
+  // Effect for updating theme name based on dark mode
   useEffect(() => {
     setThemeName(dark ? <MdDarkMode size="2em" /> : <MdLightMode size="2em" />);
   }, [dark]);
@@ -64,16 +68,17 @@ export default function Result() {
   // State to track user's answers
   const [userAnswers, setUserAnswers] = useState([]);
 
-  // Calculate the score based on user answers
   useEffect(() => {
     const newScore = userAnswers.filter(answer => answer.isCorrect).length;
     setScore(newScore);
   }, [userAnswers]);
 
+  // Function to handle theme toggle
   const handleClick = () => {
     setTheme(!dark);
   };
 
+  // Styles
   const fontTheme = {
     color: dark ? '#ffffff' : 'black',
   };
@@ -81,6 +86,8 @@ export default function Result() {
   const styleTheme = {
     backgroundColor: dark ? 'black' : '#ffffff',
   };
+
+  // Retrieve the total score from localStorage
   let totalscore = localStorage.getItem("score")
 
   return (

@@ -10,12 +10,10 @@
     border: none;
     color: white;
     font-weight: bolder;
+    margin-top: 50px;
+    margin-left: 550px;
 }
 h2{
    text-align: center;
    margin-top: 50px;
-}
-.restart{
-    margin-top: 50px;
-    margin-left: 550px;
 }

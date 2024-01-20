@@ -6,8 +6,11 @@ import { MdLightMode, MdDarkMode } from 'react-icons/md';
 
 export default function QuestionBox() {
 
+   // State for theme
   const [dark, setTheme] = useState(true);
   const [themeName, setThemeName] = useState("dark");
+
+  // State for managing questions
   const[currentQuestion, setCurrentQuestion] = useState(0);
   const [isHighlighted, setIsHighlighted] = useState(false);
   const [showResult, setShowResult] = useState(false);
@@ -61,11 +64,14 @@ export default function QuestionBox() {
       ],
     },
   ];
+
+  // Function to handle option clicks
   const optionClicked =(isCorrect) => {
     if (isCorrect){
       setscore((prev)=>prev+1)
     }
     if (currentQuestion === questions.length - 1) {
+      // Store the final score in localStorage
       localStorage.setItem("score" , score)
       setShowResult(true);
     } else {
@@ -73,6 +79,7 @@ export default function QuestionBox() {
   }
 }
 
+// Effect for updating theme name based on dark mode
   useEffect(()=>{
     if(dark){
       setThemeName(<MdDarkMode size="2em" />)
@@ -82,18 +89,23 @@ export default function QuestionBox() {
     }
   },[dark])
 
+
+  // Function to handle theme toggle
   const handleClick = ()=>{
     setTheme(!dark);
   }
 
+  // Function to handle highlighting
   const handleHighlight = () => {
     setIsHighlighted(true);
   }
 
+// Function to handle removing highlight
   const handleRemoveHighlight = () => {
     setIsHighlighted(false);
   }
 
+  // Styles
   const styleTheme = {
     backgroundColor:dark ? "black":"#ffffff",
    }
