@@ -81,6 +81,7 @@ export default function Result() {
   const styleTheme = {
     backgroundColor: dark ? 'black' : '#ffffff',
   };
+  let totalscore = localStorage.getItem("score")
 
   return (
     <div>
@@ -93,9 +94,11 @@ export default function Result() {
           Final Result
         </h1>
         <h2 style={fontTheme}>
-          {score} out of {questions.length} correct - ({((score / questions.length) * 100).toFixed(2)}%)
+          {totalscore} out of {questions.length} correct - {(totalscore / 5) * 100}%
         </h2>
+        <a href='main'>
         <button className="restart">Restart Game </button>
+        </a>
       </div>
     </div>
   );

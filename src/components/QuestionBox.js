@@ -11,6 +11,7 @@ export default function QuestionBox() {
   const[currentQuestion, setCurrentQuestion] = useState(0);
   const [isHighlighted, setIsHighlighted] = useState(false);
   const [showResult, setShowResult] = useState(false);
+  const [score , setscore] = useState(0)
   const questions = [
     {
       text: "What is ReactJS?",
@@ -61,7 +62,11 @@ export default function QuestionBox() {
     },
   ];
   const optionClicked =(isCorrect) => {
+    if (isCorrect){
+      setscore((prev)=>prev+1)
+    }
     if (currentQuestion === questions.length - 1) {
+      localStorage.setItem("score" , score)
       setShowResult(true);
     } else {
     setCurrentQuestion(currentQuestion + 1);
@@ -108,7 +113,7 @@ export default function QuestionBox() {
       <h1 className='kalvium'>Kalvium</h1>
       <button className='mode' onClick={handleClick}>{themeName}</button>
      
-      <div className='main' style={styleTheme}>
+      <div className='main' id='main' style={styleTheme}>
         <h1 style={fontTheme} className='Qcount'>Question {currentQuestion + 1} out of {questions.length}</h1>
         <h1 className='question' style={questionStyle}>{questions[currentQuestion].text}</h1>
         <ul>
